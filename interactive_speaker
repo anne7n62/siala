@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siala Speaker</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    
+/*
+    #speaker_info {}
+    
+    #speaker_background {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(product_image_03.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    max-width: none;
+    min-width: 70%;
+    top: -10;
+    position: relative;}
+*/
+
+</style>
+
+<body>
+   
+<!--
+   
+   <section id="speaker_info">
+      <div class="sectionwrapper">
+       <div id="speaker_background"></div>
+       </div>
+   </section>
+-->
+   
+   
+   
+   
+<script src=""></script>
+</body>
+</html>
