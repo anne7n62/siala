@@ -34,14 +34,20 @@
         margin: auto;
     }
 
-       .speaker_map_back img {
+    .speaker_map_back img {
         max-width: 700px;
         display: block;
         margin: auto;
     }
 
     .hidden {
-       display:none;}
+        display: none;
+    }
+
+    .fade {
+        animation: fade 2s;
+        animation-iteration-count: 1;
+    }
 
     /************************** TOOL TIP START*******/
 
@@ -61,7 +67,6 @@
         position: absolute;
         width: 300px;
         color: #fff;
-        /*        visibility: hidden;*/
     }
 
     .tooltiptext p {}
@@ -92,7 +97,7 @@
     }
 
 
-        .tooltip7 img {
+    .tooltip7 img {
         top: 80vh;
         left: 70vw;
     }
@@ -102,7 +107,7 @@
         left: 80vw;
     }
 
-        .tooltip8 img {
+    .tooltip8 img {
         top: 80vh;
         left: 70vw;
     }
@@ -113,11 +118,6 @@
     }
 
 
-    /*
-#tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-*/
 
     @keyframes pulse {
         0% {
@@ -139,11 +139,24 @@
         }
     }
 
+
+    @keyframes fade {
+        0% {
+            Opacity: 50%
+        }
+
+        100% {
+            opacity: 100%;
+        }
+    }
+
+
     /*************************TOOLTIP SLUT **************************/
 
-    #arrow {color:red;
-    font-size: 60px;}
-
+    #arrow {
+        color: red;
+        font-size: 60px;
+    }
 </style>
 
 <body>
@@ -154,81 +167,90 @@
             <div class="speaker_map_front">
                 <img src="product_image_03.png">
 
-            <div class="tooltip tooltip1">
-                <img src="tool.svg" alt="tool">
-                <span class="tooltiptext">
-                    <h3>Børstet messing</h3>
-                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
-                </span>
+                <div class="tooltip tooltip1">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext hidden">
+                        <h3>Børstet messing</h3>
+                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                    </span>
+                </div>
+
+                <div class="tooltip tooltip2">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext hidden">
+                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                    </span>
+                </div>
+
+
             </div>
 
-            <div class="tooltip tooltip2">
-                <img src="tool.svg" alt="tool">
-                <span class="tooltiptext">
-                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
-                </span>
-            </div>
 
 
-        </div>
+            <!--        Speaker map back-->
 
-
-
-<!--        Speaker map back-->
-
-           <div class="speaker_map_back hidden">
+            <div class="speaker_map_back hidden">
                 <img src="product_image_03-2.png">
 
-            <div class="tooltip tooltip7">
-                <img src="tool.svg" alt="tool">
-                <span class="tooltiptext">
-                    <h3>Børstet messing</h3>
-                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
-                </span>
-            </div>
+                <div class="tooltip tooltip7">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext">
+                        <h3>Børstet messing</h3>
+                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                    </span>
+                </div>
 
-            <div class="tooltip tooltip8">
-                <img src="tool.svg" alt="tool">
-                <span class="tooltiptext">
-                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
-                </span>
+                <div class="tooltip tooltip8">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext">
+                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                    </span>
+                </div>
             </div>
         </div>
-        </div>
 
-          <div id="arrow">➜</div>
+        <div id="arrow">➜</div>
 
     </section>
 
     <script>
+        window.addEventListener("load", sidenVises);
 
-window.addEventListener("load", sidenVises);
+        function sidenVises() {
+            console.log("sidenVises");
+            document.querySelector("#arrow").addEventListener("click", hideSpeaker);
+            document.querySelector(".tooltip").addEventListener("click", showTooltiptext);
+        }
 
-function sidenVises() {
-    console.log("sidenVises");
-    document.querySelector("#arrow").addEventListener("click", hideSpeaker);
-}
+        //når jeg klikker på pilen skal den gå ned i funktionen hideSpeaker/
 
-//når jeg klikker på pilen skal den gå ned i funktionen hideSpeaker/
+        function hideSpeaker() {
+            console.log(hideSpeaker);
+            document.querySelector(".speaker_map_back").classList.toggle("hidden");
+            document.querySelector(".speaker_map_front").classList.toggle("hidden");
+            document.querySelector(".speaker_map_back").classList.add("fade");
+            document.querySelector(".speaker_map_front").classList.add("fade");
 
-function hideSpeaker() {
-    console.log(hideSpeaker);
-    document.querySelector(".speaker_map_back").classList.toggle("hidden");
-    document.querySelector(".speaker_map_front").classList.toggle("hidden");
+            let erSkjult = document.querySelector(".speaker_map_back").classList.contains("hidden");
 
-    let erSkjult = document.querySelector(".speaker_map_back").classList.contains("hidden");
+            if (erSkjult == true) {
+                document.querySelector("#arrow").textContent = "➜";
+            } else {
+                document.querySelector("#arrow").textContent = "←";
+            }
+        }
 
-    if (erSkjult == true) {
-        document.querySelector("#arrow").textContent = "➜";
-    } else {
-        document.querySelector("#arrow").textContent = "←";
-    }
-}
+        //toggle: hvis den ikke er der tilføjer man hidden, hvis den ikke er der tilføjer man
 
-//toggle: hvis den ikke er der tilføjer man hidden, hvis den ikke er der tilføjer man
+
+         //PROBLEM - DEN VIL KUN TOGGLE HIDDEN PÅ DEN FØRSTE TOOLTIP //
+
+        function showTooltiptext() {
+            console.log(showTooltiptext);
+            document.querySelector(".tooltiptext").classList.toggle("hidden");
+            document.querySelector(".tooltiptext").classList.add("fade");
+        }
 
 
     </script>
-</body>
-
-</html>
+</body></html>
