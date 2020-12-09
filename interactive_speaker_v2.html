@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siala Speaker</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /**************** SPEAKER MAP *******************/
+
+    #speaker_map_section {
+        background-color: #000;
+        color: white;
+        height: 100vh;
+    }
+
+    .speaker_map_wrapper {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .speaker_map_front img {
+        max-width: 700px;
+        display: block;
+        margin: auto;
+    }
+
+       .speaker_map_back img {
+        max-width: 700px;
+        display: block;
+        margin: auto;
+    }
+
+    .hidden {
+       display:none;}
+
+    /************************** TOOL TIP START*******/
+
+    .tooltip img {
+        width: 1.5%;
+        height: auto;
+        z-index: 2;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+        transform: scale(1);
+        animation: pulse 2s infinite;
+        position: absolute;
+    }
+
+    .tooltiptext {
+        z-index: 1;
+        font-family: sans-serif;
+        position: absolute;
+        width: 300px;
+        color: #fff;
+        /*        visibility: hidden;*/
+    }
+
+    .tooltiptext p {}
+
+    .tooltiptext h3 {
+        font-size: 1em;
+    }
+
+    .tooltip1 img {
+        top: 59vw;
+        left: 21vw;
+    }
+
+    .tooltip1 .tooltiptext {
+        top: 80vh;
+        left: 5vw;
+    }
+
+
+    .tooltip2 img {
+        top: 80vh;
+        left: 70vw;
+    }
+
+    .tooltip2 .tooltiptext {
+        top: 80vh;
+        left: 80vw;
+    }
+
+
+        .tooltip7 img {
+        top: 80vh;
+        left: 70vw;
+    }
+
+    .tooltip7 .tooltiptext {
+        top: 80vh;
+        left: 80vw;
+    }
+
+        .tooltip8 img {
+        top: 80vh;
+        left: 70vw;
+    }
+
+    .tooltip8 .tooltiptext {
+        top: 80vh;
+        left: 80vw;
+    }
+
+
+    /*
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+*/
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+        }
+
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            border-radius: 100px;
+        }
+
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            border-radius: 100px;
+        }
+    }
+
+    /*************************TOOLTIP SLUT **************************/
+
+    #arrow {color:red;
+    font-size: 60px;}
+
+</style>
+
+<body>
+
+    <section id="speaker_map_section">
+        <div class="speaker_map_wrapper">
+
+            <div class="speaker_map_front">
+                <img src="product_image_03.png">
+
+            <div class="tooltip tooltip1">
+                <img src="tool.svg" alt="tool">
+                <span class="tooltiptext">
+                    <h3>Børstet messing</h3>
+                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                </span>
+            </div>
+
+            <div class="tooltip tooltip2">
+                <img src="tool.svg" alt="tool">
+                <span class="tooltiptext">
+                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                </span>
+            </div>
+
+
+        </div>
+
+
+
+<!--        Speaker map back-->
+
+           <div class="speaker_map_back hidden">
+                <img src="product_image_03-2.png">
+
+            <div class="tooltip tooltip7">
+                <img src="tool.svg" alt="tool">
+                <span class="tooltiptext">
+                    <h3>Børstet messing</h3>
+                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                </span>
+            </div>
+
+            <div class="tooltip tooltip8">
+                <img src="tool.svg" alt="tool">
+                <span class="tooltiptext">
+                    <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                </span>
+            </div>
+        </div>
+        </div>
+
+          <div id="arrow">➜</div>
+
+    </section>
+
+    <script>
+
+window.addEventListener("load", sidenVises);
+
+function sidenVises() {
+    console.log("sidenVises");
+    document.querySelector("#arrow").addEventListener("click", hideSpeaker);
+}
+
+//når jeg klikker på pilen skal den gå ned i funktionen hideSpeaker/
+
+function hideSpeaker() {
+    console.log(hideSpeaker);
+    document.querySelector(".speaker_map_back").classList.toggle("hidden");
+    document.querySelector(".speaker_map_front").classList.toggle("hidden");
+
+    let erSkjult = document.querySelector(".speaker_map_back").classList.contains("hidden");
+
+    if (erSkjult == true) {
+        document.querySelector("#arrow").textContent = "➜";
+    } else {
+        document.querySelector("#arrow").textContent = "←";
+    }
+}
+
+//toggle: hvis den ikke er der tilføjer man hidden, hvis den ikke er der tilføjer man
+
+
+    </script>
+</body>
+
+</html>
