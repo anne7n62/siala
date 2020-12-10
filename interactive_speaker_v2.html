@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siala Speaker</title>
     <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <style>
@@ -13,6 +15,7 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        font-family: "montserrat";
     }
 
     /**************** SPEAKER MAP *******************/
@@ -20,34 +23,53 @@
     #speaker_map_section {
         background-color: #000;
         color: white;
-        height: 100vh;
     }
 
-    .speaker_map_wrapper {
-        max-width: 900px;
-        margin: auto;
+    .speaker_map_front {
+        background-image: url("speaker_front_550.png");
+        background-position: center;
+        background-repeat: no-repeat;
+
+        width: 700px;
+        height: 600px;
+        margin: 0 auto;
+
+        position: relative;
     }
 
-    .speaker_map_front img {
-        max-width: 700px;
-        display: block;
-        margin: auto;
+
+
+    .speaker_map_back {
+        background-image: url("speaker_back_550.png");
+        background-position: center;
+        background-repeat: no-repeat;
+
+        width: 700px;
+        height: 600px;
+        margin: 0 auto;
+
+        position: relative;
     }
 
-    .speaker_map_back img {
-        max-width: 700px;
-        display: block;
-        margin: auto;
+    h2 {
+        color: goldenrod;
+        text-align: center;
+        padding-top: 2em;
+    }
+
+    #arrow {
+        color: goldenrod;
+        font-size: 1em;
+        text-align: center;
+        padding-bottom: 2em;
+        cursor: pointer;
     }
 
     .hidden {
         display: none;
     }
 
-    .fade {
-        animation: fade 2s;
-        animation-iteration-count: 1;
-    }
+
 
     /************************** TOOL TIP START*******/
 
@@ -57,67 +79,117 @@
         z-index: 2;
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
         transform: scale(1);
-        animation: pulse 2s infinite;
+        animation: pulse 5s infinite;
         position: absolute;
     }
 
     .tooltiptext {
         z-index: 1;
-        font-family: sans-serif;
+        font-size: 12px;
         position: absolute;
         width: 300px;
         color: #fff;
     }
 
-    .tooltiptext p {}
-
-    .tooltiptext h3 {
-        font-size: 1em;
-    }
+    /*   FRONT TOOLTIP */
 
     .tooltip1 img {
-        top: 59vw;
-        left: 21vw;
+        top: 168px;
+        left: 55px;
     }
 
     .tooltip1 .tooltiptext {
-        top: 80vh;
-        left: 5vw;
+        top: 40px;
+        left: 10px;
     }
 
 
     .tooltip2 img {
-        top: 80vh;
-        left: 70vw;
+        top: 340px;
+        ;
+        left: 83px;
     }
 
     .tooltip2 .tooltiptext {
-        top: 80vh;
-        left: 80vw;
+        top: 500px;
+        left: 20px;
+    }
+
+    .tooltip3 img {
+        top: 120px;
+        left: 450px;
+    }
+
+    .tooltip3 .tooltiptext {
+        top: 50px;
+        left: 450px;
     }
 
 
+    .tooltip4 img {
+        top: 300px;
+        left: 510px;
+    }
+
+    .tooltip4 .tooltiptext {
+        top: 500px;
+        left: 400px;
+    }
+
+    .tooltip5 img {
+        top: 430px;
+        left: 200px;
+    }
+
+    .tooltip5 .tooltiptext {
+        top: 500px;
+        left: 290px;
+    }
+
+
+
+
+    /*    BACK TOOLTIP */
+
+
+    .tooltip6 img {
+        top: 290px;
+        left: 200px;
+    }
+
+    .tooltip6 .tooltiptext {
+        top: 40px;
+        left: 30px;
+    }
+
     .tooltip7 img {
-        top: 80vh;
-        left: 70vw;
+        top: 250px;
+        left: 556px;
     }
 
     .tooltip7 .tooltiptext {
-        top: 80vh;
-        left: 80vw;
+        top: 55px;
+        left: 430px;
     }
 
     .tooltip8 img {
-        top: 80vh;
-        left: 70vw;
+        top: 385px;
+        left: 400px;
     }
 
     .tooltip8 .tooltiptext {
-        top: 80vh;
-        left: 80vw;
+        top: 500px;
+        left: 430px;
     }
 
+    /*************************TOOLTIP SLUT **************************/
+    /*************************ANIMATION START **************************/
 
+
+    .fade {
+        animation: fade 2s;
+        animation-iteration-count: 1;
+    }
 
     @keyframes pulse {
         0% {
@@ -142,7 +214,7 @@
 
     @keyframes fade {
         0% {
-            Opacity: 50%
+            Opacity: 40%
         }
 
         100% {
@@ -151,36 +223,124 @@
     }
 
 
-    /*************************TOOLTIP SLUT **************************/
+    /*************************ANIMATION SLUT **************************/
+    /*************************MEDIAQUERIES START **************************/
 
-    #arrow {
-        color: red;
-        font-size: 60px;
+    @media (max-width: 700px) {
+
+        #speaker_map_section {
+           padding-bottom: 2em;
+        }
+
+        .speaker_map_wrapper { display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .speaker_map_front {
+            background-image: none;
+            width: 300px;
+            height: 400px;
+            padding-left:1.2em;
+
+            flex-grow: 1;
+            flex-basis: 300px;
+        }
+
+        .speaker_map_back {
+            background-image: none;
+
+            width: 300px;
+            height: 230px;
+            padding-left:1.2em;
+
+            position: relative;
+
+            flex-grow: 1;
+            flex-basis: 300px;
+        }
+
+        h2 {
+            text-align: left;
+            padding: 2em 0em 2em 0.7em;
+        }
+
+        #arrow {
+            display: none
+        }
+
+
+
+        .hidden {
+            display: block;
+        }
+
+        .tooltip img {
+            position: static;
+            display: none;
+        }
+
+        .tooltiptext {
+            position: static;
+            padding-bottom: 1em;
+        }
+
     }
+
+    /*************************MEDIAQUERIES SLUT **************************/
 </style>
 
 <body>
 
     <section id="speaker_map_section">
+        <h2>Dyk ned i detaljerne på din højttaler</h2>
+
         <div class="speaker_map_wrapper">
 
             <div class="speaker_map_front">
-                <img src="product_image_03.png">
 
                 <div class="tooltip tooltip1">
                     <img src="tool.svg" alt="tool">
                     <span class="tooltiptext hidden">
-                        <h3>Børstet messing</h3>
-                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                        <h3>SOLIDE MATERIALER</h3>
+                        <p>Vi udvælger selv de bedst egnede materialer og planker til vores højtaler. Vælg mellem:
+                            Eg, valnød eller corian (på billedet)</p>
                     </span>
                 </div>
+
 
                 <div class="tooltip tooltip2">
                     <img src="tool.svg" alt="tool">
                     <span class="tooltiptext hidden">
-                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                        <h3>ITALIENSK LÆDER</h3>
+                        <p>Højtaleren bliver belagt med lækker italiensk læder i valgfri farve: mocca, caramel(?) eller sort (på billedet).</p>
                     </span>
                 </div>
+
+                <div class="tooltip tooltip3">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext hidden">
+                        <h3>HÅNDLAVET GREB</h3>
+                        <p>Skal din højtaler være med eller uden greb?<br> Vi laver din højttaler lige som du vil have den. </p>
+                    </span>
+                </div>
+
+                <div class="tooltip tooltip4">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext hidden">
+                        <h3>UTROLIG LYD</h3>
+                        <p>Vi har valgt vores højttalerenheder fra en anerkendt amerikansk producent. Det betyder, at vi kan få en utrolig fyldig bund i højttaleren helt uden forvrængning. </p>
+                    </span>
+                </div>
+
+                <div class="tooltip tooltip5">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext hidden">
+                        <h3>BØRSTET MESSING</h3>
+                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner. </p>
+                    </span>
+                </div>
+
 
 
             </div>
@@ -190,26 +350,36 @@
             <!--        Speaker map back-->
 
             <div class="speaker_map_back hidden">
-                <img src="product_image_03-2.png">
+
+
+                <div class="tooltip tooltip6">
+                    <img src="tool.svg" alt="tool">
+                    <span class="tooltiptext hidden">
+                        <h3>HØJTTALERENS KERNE</h3>
+                        <p>Vi bygger kernen i alle vores kabinetter af højkvalitets 7 lags birkekrydsfiner. Det erkendt som et af de absolut bedste materialer til at bygge højttalere i.</p>
+                    </span>
+                </div>
 
                 <div class="tooltip tooltip7">
                     <img src="tool.svg" alt="tool">
-                    <span class="tooltiptext">
-                        <h3>Børstet messing</h3>
-                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                    <span class="tooltiptext hidden">
+                        <h3>BASPORT</h3>
+                        <p>Åbningen til basporten bliver håndbygget <br> efter eget valgt materiale.</p>
                     </span>
                 </div>
 
                 <div class="tooltip tooltip8">
                     <img src="tool.svg" alt="tool">
-                    <span class="tooltiptext">
-                        <p>Vi har lagt utrolig mange kræfter i at opnå den perfekte “messing finish”, den rette balance imellem børstet og blankt, fræse teknikker, indgraverings dybder og panel kompositioner.</p>
+                    <span class="tooltiptext hidden">
+                        <h3>MADE IN COPENHAGEN</h3>
+                        <p>Vores bagside er dekoreret med et børstet messing panel med indbygget LED indikatorer, AUX plug-in samt power input.</p>
                     </span>
                 </div>
             </div>
         </div>
 
-        <div id="arrow">➜</div>
+
+        <div id="arrow">Undersøg højttalerens bagside</div>
 
     </section>
 
@@ -219,8 +389,29 @@
         function sidenVises() {
             console.log("sidenVises");
             document.querySelector("#arrow").addEventListener("click", hideSpeaker);
-            document.querySelector(".tooltip").addEventListener("click", showTooltiptext);
+
+            // Når musen er over tooltip
+            document.querySelector(".tooltip1 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip2 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip3 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip4 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip5 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip6 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip7 img").addEventListener("mouseover", showTooltiptext);
+            document.querySelector(".tooltip8 img").addEventListener("mouseover", showTooltiptext);
+
+            // Når musen er bevæger sig væk fra tooltip
+            document.querySelector(".tooltip1 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip2 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip3 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip4 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip5 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip6 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip7 img").addEventListener("mouseout", hideTooltiptext);
+            document.querySelector(".tooltip8 img").addEventListener("mouseout", hideTooltiptext);
+
         }
+
 
         //når jeg klikker på pilen skal den gå ned i funktionen hideSpeaker/
 
@@ -234,23 +425,30 @@
             let erSkjult = document.querySelector(".speaker_map_back").classList.contains("hidden");
 
             if (erSkjult == true) {
-                document.querySelector("#arrow").textContent = "➜";
+                document.querySelector("#arrow").textContent = "Undersøg højttalerens bagside";
             } else {
-                document.querySelector("#arrow").textContent = "←";
+                document.querySelector("#arrow").textContent = "Undersøg højttalerens forside";
             }
         }
 
         //toggle: hvis den ikke er der tilføjer man hidden, hvis den ikke er der tilføjer man
 
 
-         //PROBLEM - DEN VIL KUN TOGGLE HIDDEN PÅ DEN FØRSTE TOOLTIP //
+        //PROBLEM - DEN VIL KUN TOGGLE HIDDEN PÅ DEN FØRSTE TOOLTIP //
 
         function showTooltiptext() {
             console.log(showTooltiptext);
-            document.querySelector(".tooltiptext").classList.toggle("hidden");
-            document.querySelector(".tooltiptext").classList.add("fade");
+
+
+            // class'en hidden bliver fjernet
+            this.parentElement.querySelector(".tooltiptext").classList.remove("hidden");
+            this.parentElement.querySelector(".tooltiptext").classList.add("fade");
         }
 
-
+        // class'en hidden bliver tilføjet
+        function hideTooltiptext() {
+            console.log(hideTooltiptext);
+            this.parentElement.querySelector(".tooltiptext").classList.add("hidden");
+        }
     </script>
 </body></html>
